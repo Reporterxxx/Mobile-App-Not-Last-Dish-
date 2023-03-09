@@ -18,13 +18,24 @@
         <!--        android:layout_marginTop="96dp"-->
         <!--        android:selectAllOnFocus="true"-->
         <!--        android:layout_marginTop="12.5dp"-->
-
+<!--    android:layout_marginTop="332dp"-->
+<!--    <ScrollView-->
+<!--        android:id="@+id/scroll_login_register"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent1"-->
+<!--        app:layout_constraintEnd_toEndOf="parent1"-->
+<!--        app:layout_constraintTop_toTopOf="parent1"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent1">-->
+<!--    <RelativeLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
     <ImageView
         android:id="@+id/email_username_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/email_password_background"
-        android:layout_marginTop="332dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -35,7 +46,9 @@
         android:layout_height="45dp"
         android:hint="@string/prompt_email"
         android:textSize="11sp"
+        android:textStyle="bold"
         android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         app:boxBackgroundMode="none"
         android:background="@drawable/edittext_background"
         android:inputType="textEmailAddress"
@@ -52,7 +65,9 @@
         android:layout_height="45dp"
         android:hint="@string/prompt_password"
         android:textSize="11sp"
+        android:textStyle="bold"
         android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -63,11 +78,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username"/>
 
+    <CheckBox
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginStart="13dp"
+        app:layout_constraintStart_toStartOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/password"/>
+
+    <TextView
+        android:id="@+id/remind_me"
+        android:layout_width="95dp"
+        android:layout_height="32dp"
+        android:text="@string/remind_me"
+        android:lines="1"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="41dp"
+        app:layout_constraintStart_toStartOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/password"/>
 <!--    app:layout_constraintVertical_bias="0.2"-->
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="88dp"
+        android:layout_height="32dp"
+        android:text="@string/forgot_password"
+        android:lines="1"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/password"/>
+
     <Button
         android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="155dp"
+        android:layout_height="42dp"
         android:layout_gravity="start"
         android:layout_marginTop="118dp"
         android:enabled="false"
@@ -77,6 +130,37 @@
         app:cornerRadius="20dp"
         android:backgroundTint="@drawable/login_button_background1"
         app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/no_acc_register"
+        android:layout_width="211dp"
+        android:layout_height="20dp"
+        android:text="@string/no_account_register"
+        android:lines="1"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="@id/email_username_bg"
+        app:layout_constraintEnd_toEndOf="@id/email_username_bg"
+        app:layout_constraintTop_toBottomOf="@id/login"/>
+
+    <Button
+        android:id="@+id/register_start"
+        android:layout_width="155dp"
+        android:layout_height="42dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="60dp"
+        android:enabled="false"
+        android:text="@string/start_register"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        app:cornerRadius="20dp"
+        android:backgroundTint="@drawable/login_button_background1"
+        app:layout_constraintTop_toBottomOf="@id/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -94,5 +178,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
+<!--    </RelativeLayout>-->
+<!--    </ScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
