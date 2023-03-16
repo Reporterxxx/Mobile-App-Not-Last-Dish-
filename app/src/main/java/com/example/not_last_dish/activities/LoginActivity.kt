@@ -1,6 +1,7 @@
-package com.example.not_last_dish.ui.login
+package com.example.not_last_dish.activities
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -15,6 +16,9 @@ import android.widget.Toast
 import com.example.not_last_dish.databinding.ActivityLoginBinding
 
 import com.example.not_last_dish.R
+import com.example.not_last_dish.ui.login.LoggedInUserView
+import com.example.not_last_dish.ui.login.LoginViewModel
+import com.example.not_last_dish.ui.login.LoginViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,14 +30,13 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val username = binding.username
         val password = binding.password
         val login = binding.login
         val loading = binding.loading
 
-        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
-                .get(LoginViewModel::class.java)
+        loginViewModel = ViewModelProvider(this,
+            LoginViewModelFactory())[LoginViewModel::class.java]
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
@@ -94,6 +97,8 @@ class LoginActivity : AppCompatActivity() {
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
+                val intent = Intent(this@LoginActivity, ActivityVerification::class.java)
+                startActivity(intent)
             }
         }
     }
