@@ -10,26 +10,6 @@
     android:orientation="vertical"
     tools:context=".ui.login.LoginActivity">
 
-    <!-- app:layout_constraintTop_toTopOf="parent"-->
-    <!--    android:layout_marginLeft="41dp"-->
-    <!--    android:layout_alignParentLeft="true"-->
-    <!--    android:layout_alignParentTop="true"-->
-        <!-- android:id="@+id/username"-->
-        <!--        android:layout_marginTop="96dp"-->
-        <!--        android:selectAllOnFocus="true"-->
-        <!--        android:layout_marginTop="12.5dp"-->
-<!--    android:layout_marginTop="332dp"-->
-<!--    <ScrollView-->
-<!--        android:id="@+id/scroll_login_register"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="parent1"-->
-<!--        app:layout_constraintEnd_toEndOf="parent1"-->
-<!--        app:layout_constraintTop_toTopOf="parent1"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent1">-->
-<!--    <RelativeLayout-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content">-->
     <ImageView
         android:id="@+id/email_username_bg"
         android:layout_width="wrap_content"
@@ -125,6 +105,8 @@
         android:layout_marginTop="118dp"
         android:enabled="false"
         android:text="@string/action_sign_in"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         android:textSize="11sp"
         android:textColor="@color/black"
         app:cornerRadius="20dp"
@@ -156,6 +138,7 @@
         android:layout_marginTop="60dp"
         android:enabled="false"
         android:text="@string/start_register"
+        android:textAllCaps="false"
         android:textSize="11sp"
         android:textColor="@color/black"
         app:cornerRadius="20dp"

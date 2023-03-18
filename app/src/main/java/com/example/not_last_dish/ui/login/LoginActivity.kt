@@ -1,6 +1,7 @@
 package com.example.not_last_dish.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -15,6 +16,7 @@ import android.widget.Toast
 import com.example.not_last_dish.databinding.ActivityLoginBinding
 
 import com.example.not_last_dish.R
+import com.example.not_last_dish.activities.RegistrationActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -31,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
         val password = binding.password
         val login = binding.login
         val loading = binding.loading
+        val signup = binding.registerStart
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
                 .get(LoginViewModel::class.java)
@@ -48,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                 password.error = getString(loginState.passwordError)
             }
         })
-
+//      work only when we click on login button
         loginViewModel.loginResult.observe(this@LoginActivity, Observer {
             val loginResult = it ?: return@Observer
 
@@ -61,7 +64,10 @@ class LoginActivity : AppCompatActivity() {
             }
             setResult(Activity.RESULT_OK)
 
-            //Complete and destroy login activity once successful
+//            need to change new opening activity on another
+            val i = Intent(this@LoginActivity, RegistrationActivity::class.java)
+            startActivity(i)
+            // Complete and destroy login activity once successful
             finish()
         })
 
@@ -95,6 +101,12 @@ class LoginActivity : AppCompatActivity() {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
+        }
+
+        signup!!.setOnClickListener {
+            val i = Intent(this@LoginActivity, RegistrationActivity::class.java)
+            startActivity(i)
+            finish()
         }
     }
 
