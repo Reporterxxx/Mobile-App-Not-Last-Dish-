@@ -1,4 +1,4 @@
-package com.example.not_last_dish.ui.login
+package com.example.not_last_dish.ui.llogin
 
 /**
  * Data validation state of the login form.

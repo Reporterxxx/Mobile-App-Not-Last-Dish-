@@ -1,4 +1,4 @@
-package com.example.not_last_dish.ui.login
+package com.example.not_last_dish.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -11,34 +11,38 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.not_last_dish.databinding.ActivityLoginBinding
 
 import com.example.not_last_dish.R
-import com.example.not_last_dish.activities.RegistrationActivity
+import com.example.not_last_dish.databinding.ActivityPrevLoginBinding
+import com.example.not_last_dish.ui.llogin.LoggedInUserView
+import com.example.not_last_dish.ui.llogin.LoginViewModel
+import com.example.not_last_dish.ui.llogin.LoginViewModelFactory
 
-class LoginActivity : AppCompatActivity() {
+class PrevLoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityPrevLoginBinding
+    private lateinit var signup: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityPrevLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val username = binding.username
         val password = binding.password
         val login = binding.login
         val loading = binding.loading
-        val signup = binding.registerStart
+        signup = binding.registerStart!!
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
                 .get(LoginViewModel::class.java)
 
-        loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
+        loginViewModel.loginFormState.observe(this@PrevLoginActivity, Observer {
             val loginState = it ?: return@Observer
 
             // disable login button unless both username / password is valid
@@ -52,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
             }
         })
 //      work only when we click on login button
-        loginViewModel.loginResult.observe(this@LoginActivity, Observer {
+        loginViewModel.loginResult.observe(this@PrevLoginActivity, Observer {
             val loginResult = it ?: return@Observer
 
             loading.visibility = View.GONE
@@ -65,7 +69,7 @@ class LoginActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
 //            need to change new opening activity on another
-            val i = Intent(this@LoginActivity, RegistrationActivity::class.java)
+            val i = Intent(this@PrevLoginActivity, RegistrationActivity::class.java)
             startActivity(i)
             // Complete and destroy login activity once successful
             finish()
@@ -103,13 +107,14 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        signup!!.setOnClickListener {
-            val i = Intent(this@LoginActivity, RegistrationActivity::class.java)
+        signup.setOnClickListener {
+            val i = Intent(this@PrevLoginActivity, RegistrationActivity::class.java)
             startActivity(i)
             finish()
         }
     }
 
+    // Show notification with message "Welcome! <user name>"
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName

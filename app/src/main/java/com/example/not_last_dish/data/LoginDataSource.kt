@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.not_last_dish.advenced_httpurlconnection.PutData
 import com.example.not_last_dish.data.model.LoggedInUser
 import java.io.IOException
+import java.net.ConnectException
 
 
 /**
@@ -17,9 +18,10 @@ class LoginDataSource {
         return try {
             // TODO: handle loggedInUser authentication
             // connection to MySQL DataBase with php scripts in local server XAMPP
-            var user = LoggedInUser("1", "")
+            var user : LoggedInUser = LoggedInUser("", "")
+            var result: String = ""
             val handler = Handler(Looper.getMainLooper())
-            handler.post {
+            if (handler.post {
                 //Starting Write and Read data with URL
                 //Creating array for parameters
                 val field = arrayOfNulls<String>(2)
@@ -52,13 +54,14 @@ class LoginDataSource {
                     field,
                     data
                 )
+                Log.v("TAG121", "start check")
                 if (putData.startPut()) {
                     if (putData.onComplete()) {
-                        val result: String = putData.getResult()
+                        result = putData.getResult()
                         //End ProgressBar (Set visibility to GONE)
                         when (result) {
                             "Login Success" -> {
-                                user = LoggedInUser("1", data[0]!!)
+                                user = LoggedInUser(java.util.UUID.randomUUID().toString(), data[0]!!)
                                 Log.v("TAG121", "$result $username $password")
                             }
                             "Username or Password wrong" -> {
@@ -70,12 +73,22 @@ class LoginDataSource {
                         }
                     }
                 }
+                Log.v("TAG121", "start check finish")
                 //End Write and Read data with URL
+            }) {
+                if (result != "") {
+                    if (user.displayName != "")
+                        Result.Success(user!!)
+                    else
+                        throw ConnectException()
+                }
             }
 
 //            val user = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
-            Result.Success(user)
+                Result.Success(user!!)
         } catch (e: Throwable) {
+            Result.Error(IOException("Error logging in", e))
+        } catch (e: ConnectException) {
             Result.Error(IOException("Error logging in", e))
         }
 ////        Structure rule one input - one exit

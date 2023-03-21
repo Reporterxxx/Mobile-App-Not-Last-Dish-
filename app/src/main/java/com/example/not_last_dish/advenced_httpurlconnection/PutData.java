@@ -1,5 +1,9 @@
 package com.example.not_last_dish.advenced_httpurlconnection;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -16,7 +20,7 @@ public class PutData extends Thread {
     String result_data = "Empty";
     String[] data, field;
 
-    public PutData(String url, String method, String[] field, String[] data) {
+    public PutData(String url, String method, @NonNull String[] field, @NonNull String[] data) {
         this.url = url;
         this.method = method;
         this.data = new String[data.length];
@@ -30,13 +34,20 @@ public class PutData extends Thread {
         try {
             String UTF8 = "UTF-8", iso = "iso-8859-1";
             URL url = new URL(this.url);
+            Log.v("TAG121", "start to connect1");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            Log.v("TAG121", "start to connect2");
             httpURLConnection.setRequestMethod(this.method);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
+            Log.v("TAG121", "start to connect3");
+            // TODO: need to fix the case were ip is not correct or connection impossible
             OutputStream outputStream = httpURLConnection.getOutputStream();
+            Log.v("TAG121", "start to connect4");
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, UTF8));
+            Log.v("TAG121", "start to connect5");
             StringBuilder post_data = new StringBuilder();
+            Log.v("TAG121", "start to connect");
             for (int i = 0; i < this.field.length; i++) {
                 post_data.append(URLEncoder.encode(this.field[i], "UTF-8")).append("=").append(URLEncoder.encode(this.data[i], UTF8)).append("&");
             }

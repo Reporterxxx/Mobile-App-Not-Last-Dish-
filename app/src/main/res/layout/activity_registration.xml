@@ -6,7 +6,7 @@
     android:background="@drawable/login_activity_background"
     android:id="@+id/Scroll"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="ui.login.LoginActivity">
+    tools:context=".activities.RegistrationActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
