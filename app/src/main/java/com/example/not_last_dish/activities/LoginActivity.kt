@@ -1,7 +1,6 @@
 package com.example.not_last_dish.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,13 +11,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.lifecycle.LiveData
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.not_last_dish.R
 import com.example.not_last_dish.databinding.ActivityLoginBinding
-import java.util.*
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding : ActivityLoginBinding
@@ -41,10 +39,11 @@ class LoginActivity : AppCompatActivity() {
             if (!isUserNameValid(username.text.toString())) {
                 //TODO: To show error message with the red icons within field
                 username.error = getString(R.string.invalid_username)
+                isUserNameValid = false
             } else {
                 //TODO: To change login button state
                 isUserNameValid = true
-                loginBtn.isEnabled = isUserNameValid and isPasswordValid
+                //loginBtn.isEnabled = isUserNameValid and isPasswordValid
             }
         }
 
@@ -52,10 +51,11 @@ class LoginActivity : AppCompatActivity() {
             if (!isPasswordValid(password.text.toString())) {
                 //TODO: To show error message with the red icons within field
                 password.error = getString(R.string.invalid_password)
+                isPasswordValid = false
             } else {
                 //TODO: To change login button state
                 isPasswordValid = true
-                loginBtn.isEnabled = isUserNameValid and isPasswordValid
+                //loginBtn.isEnabled = isUserNameValid and isPasswordValid
             }
         }
 
@@ -68,7 +68,12 @@ class LoginActivity : AppCompatActivity() {
             the value is returned by verificationUser will be false because
             variable result get value true only after returning value
              */
-            verificationUser(username.text.toString(), password.text.toString())
+            if (isUserNameValid and isPasswordValid) {
+                verificationUser(username.text.toString(), password.text.toString())
+            } else {
+                loadingAnim.visibility = View.GONE
+                //Toast.makeText(applicationContext, "Пустые поля!", Toast.LENGTH_LONG).show()
+            }
         }
 
         signUpBtn.setOnClickListener {
@@ -79,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    //TODO: need to change validation conditions
     // A placeholder username validation check
     private fun isUserNameValid(username: String): Boolean {
         return if (username.contains('@')) {
@@ -88,9 +94,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    //TODO: need to change validation conditions
     // A placeholder password validation check
     private fun isPasswordValid(password: String): Boolean {
-        return password.length > 5
+        return (password.length > 8) and !password.contains(" ")
     }
 
     /**
@@ -118,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
             Method.POST, url, Response.Listener { response ->
                 when (response) {
                     "Login Success" -> {
-                        result = true; Log.v("TAGG", "AA1$result");
+                        result = true; Log.v("TAGG", "AA1$result")
                         val i = Intent(applicationContext, MainActivity::class.java)
                         startActivity(i)
                         finish()
@@ -137,7 +144,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext,"That didn't work!", Toast.LENGTH_LONG).show()
             }
         ) {
-            override fun getParams(): Map<String, String>? {
+            override fun getParams(): Map<String, String> {
                 val params: MutableMap<String, String> = HashMap()
                 params["name"] = username
                 params["password"] = password

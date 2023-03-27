@@ -11,34 +11,150 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--    android:id="@+id/password"-->
-        <!--        android:layout_marginTop="12.5dp"-->
-
         <ImageView
-            android:id="@+id/registration_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/login_bg"
+            android:layout_width="332dp"
+            android:layout_height="65dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="294dp"
+            android:background="@drawable/login_btn_upper_background" />
+
+        <TextView
+            android:id="@+id/registration_title"
+            android:layout_width="155dp"
+            android:layout_height="42dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/login"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="82dp"
+            android:layout_marginTop="61dp"
+            android:layout_marginEnd="82dp"
+            android:background="@drawable/registration_title_background"
+            android:gravity="center"
+            android:text="@string/start_register"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <!--    android:id="@+id/password"-->
+        <!--        android:layout_marginTop="12.5dp"-->
+        <ImageView
+            android:id="@+id/registration_bg"
+            android:layout_width="332dp"
+            android:layout_height="1041dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="40dp"
             android:layout_marginBottom="294dp"
             android:background="@drawable/registration_background" />
 
+        <FrameLayout
+            android:id="@+id/image_layout"
+            android:layout_width="172dp"
+            android:layout_height="172dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/registration_bg"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/shadow">
+
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_default_profile" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/nickname_field_info"
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/nickname"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="49dp"
+            android:lines="1"
+            android:text="@string/nickname_field_info"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/name_lastname_fields_info"
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/lastname"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="49dp"
+            app:lineHeight="20sp"
+            android:lines="2"
+            android:text="@string/name_lastname_fields_info"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/password_field_info"
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/password_field"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="49dp"
+            android:lines="5"
+            android:text="@string/password_field_info"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:lineHeight="20sp" />
+
+        <Button
+            android:id="@+id/load_image"
+            android:layout_width="190dp"
+            android:layout_height="36dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_alignTop="@id/image_layout"
+            android:layout_marginStart="71dp"
+            android:layout_marginTop="194dp"
+            android:layout_marginEnd="71dp"
+            android:background="@drawable/login_button_background2"
+            android:text="@string/load_image"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
+
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/nickname"
             android:layout_width="277dp"
             android:layout_height="48dp"
-            android:layout_alignStart="@+id/registration_bg"
-            android:layout_alignTop="@+id/registration_bg"
-            android:layout_alignEnd="@+id/registration_bg"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/load_image"
+            android:layout_alignEnd="@id/registration_bg"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="56dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/edittext_background"
-            android:hint="@string/prompt_email"
+            android:hint="@string/nickname"
             android:inputType="textEmailAddress"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -47,17 +163,17 @@
             app:boxBackgroundMode="none" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/name"
             android:layout_width="277dp"
             android:layout_height="48dp"
-            android:layout_alignStart="@+id/registration_bg"
-            android:layout_alignTop="@+id/username"
-            android:layout_alignEnd="@+id/registration_bg"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/nickname"
+            android:layout_alignEnd="@id/registration_bg"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="81dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/edittext_background"
-            android:hint="@string/prompt_password"
+            android:hint="@string/name"
             android:inputType="textPassword"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -66,17 +182,17 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/fullname"
+            android:id="@+id/lastname"
             android:layout_width="277dp"
             android:layout_height="48dp"
-            android:layout_alignStart="@+id/registration_bg"
-            android:layout_alignTop="@+id/password"
-            android:layout_alignEnd="@+id/registration_bg"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/name"
+            android:layout_alignEnd="@id/registration_bg"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="54dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/edittext_background"
-            android:hint="Имя"
+            android:hint="@string/lastname"
             android:inputType="text"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -85,17 +201,38 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/nickname"
+            android:id="@+id/email"
             android:layout_width="277dp"
             android:layout_height="48dp"
-            android:layout_alignStart="@+id/registration_bg"
-            android:layout_alignTop="@+id/fullname"
-            android:layout_alignEnd="@+id/registration_bg"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/lastname"
+            android:layout_alignEnd="@id/registration_bg"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="68dp"
+            android:layout_marginTop="96dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/edittext_background"
-            android:hint="Никнейм"
+            android:hint="@string/email"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:selectAllOnFocus="true"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/login_field"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/email"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/login"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
@@ -104,6 +241,127 @@
             android:selectAllOnFocus="true"
             android:textSize="11sp"
             android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/password_field"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/login_field"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:selectAllOnFocus="true"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/repeat_password"
+            android:layout_width="277dp"
+            android:layout_height="48dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignTop="@id/password_field"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="153dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/repeat_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:selectAllOnFocus="true"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+<!--        android:layout_marginEnd="285dp"-->
+        <CheckBox
+            android:id="@+id/confirm_user_agreement"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@id/repeat_password"
+            android:layout_alignTop="@id/repeat_password"
+            android:layout_marginStart="-7dp"
+            android:layout_marginTop="74dp" />
+
+        <TextView
+            android:id="@+id/confirm_info1"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/confirm_user_agreement"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/confirm_user_agreement"
+            android:lines="1"
+            android:text="@string/i_agree"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:lineHeight="20sp" />
+
+        <TextView
+            android:id="@+id/user_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/confirm_info1"
+            android:layout_alignTop="@id/confirm_user_agreement"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:text="@string/user_agreement"
+            android:textColor="@color/red_address"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:lineHeight="20sp" />
+<!--        android:layout_marginEnd="285dp"-->
+        <CheckBox
+            android:id="@+id/confirm_confidence"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignStart="@id/repeat_password"
+            android:layout_alignTop="@id/confirm_user_agreement"
+            android:layout_marginStart="-7dp"
+            android:layout_marginTop="42dp" />
+
+        <TextView
+            android:id="@+id/confirm_info2"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/confirm_confidence"
+            android:layout_alignTop="@id/confirm_confidence"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:text="@string/i_agree"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:lineHeight="20sp" />
+
+        <TextView
+            android:id="@+id/confidence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/confirm_info2"
+            android:layout_alignTop="@id/confirm_confidence"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:text="@string/confidence"
+            android:textColor="@color/red_address"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:lineHeight="20sp" />
 
         <!--    app:layout_constraintVertical_bias="0.2"-->
 
@@ -154,25 +412,7 @@
 <!--            app:layout_constraintStart_toStartOf="@id/password"-->
 <!--            app:layout_constraintTop_toBottomOf="@id/password" />-->
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="155dp"
-            android:layout_height="48dp"
-            android:layout_alignStart="@+id/registration_bg"
-            android:layout_alignEnd="@+id/registration_bg"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="start"
-            android:layout_marginStart="84dp"
-            android:layout_marginEnd="84dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@drawable/login_button_background1"
-            android:text="@string/action_sign_in"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            app:cornerRadius="20dp" />
-
-<!--        android:strokeWidth="2dp"-->
+        <!--        android:strokeWidth="2dp"-->
 <!--        android:strokeColor="@color/black"-->
 <!--        <ImageView-->
 <!--            android:id="@+id/icon_bg"-->
@@ -187,17 +427,35 @@
 <!--            android:background="@drawable/ic_profile" />-->
 
         <Button
+            android:id="@+id/login"
+            android:layout_width="155dp"
+            android:layout_height="42dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="start"
+            android:layout_marginStart="82dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="82dp"
+            android:background="@drawable/login_button_background1"
+            android:text="@string/action_sign_in"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
+
+        <Button
             android:id="@+id/register_start"
             android:layout_width="155dp"
-            android:layout_height="48dp"
-            android:layout_alignBottom="@+id/registration_bg"
-            android:layout_alignStart="@+id/registration_bg"
-            android:layout_alignEnd="@+id/registration_bg"
+            android:layout_height="42dp"
+            android:layout_alignStart="@id/registration_bg"
+            android:layout_alignEnd="@id/registration_bg"
+            android:layout_alignBottom="@id/registration_bg"
             android:layout_marginStart="84dp"
-            android:layout_marginBottom="-10dp"
             android:layout_marginEnd="84dp"
-            android:backgroundTint="@drawable/login_button_background1"
-            android:enabled="false"
+            android:layout_marginBottom="-18dp"
+            android:background="@drawable/login_button_background1"
             android:text="@string/start_register"
             android:textAllCaps="false"
             android:textColor="@color/black"
@@ -212,11 +470,6 @@
             android:layout_marginTop="64dp"
             android:layout_marginBottom="64dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
 
     </RelativeLayout>

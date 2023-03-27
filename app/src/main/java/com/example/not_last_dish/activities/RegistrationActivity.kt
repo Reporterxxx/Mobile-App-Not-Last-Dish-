@@ -14,9 +14,9 @@ class RegistrationActivity : AppCompatActivity() {
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var username = binding.username
-        var password = binding.password
-        var fullname = binding.fullname
+        var username = binding.nickname
+        var password = binding.passwordField
+        var fullname = binding.name
         var nickname = binding.nickname
         val login = binding.login
         val register = binding.registerStart
