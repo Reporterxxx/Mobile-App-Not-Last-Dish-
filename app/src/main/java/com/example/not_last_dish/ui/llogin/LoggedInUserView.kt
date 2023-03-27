@@ -1,4 +1,4 @@
-package com.example.not_last_dish.ui.login
+package com.example.not_last_dish.ui.llogin
 
 /**
  * User details post authentication that is exposed to the UI

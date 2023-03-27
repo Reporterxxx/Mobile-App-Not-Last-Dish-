@@ -3,33 +3,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_activity_background"
     android:orientation="vertical"
-    tools:context=".activities.LoginActivity">
+    tools:context=".activities.PrevLoginActivity">
 
-<!--    android:background="@drawable/email_password_background"-->
     <ImageView
         android:id="@+id/email_username_bg"
-        android:layout_width="332dp"
-        android:layout_height="296dp"
-        android:background="@drawable/login_input_background"
-        android:layout_marginBottom="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/email_password_background"
+        android:layout_marginTop="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/registration_btn_bg"/>
-
-    <ImageView
-        android:id="@+id/registration_btn_bg"
-        android:layout_width="332dp"
-        android:layout_height="296dp"
-        android:rotation="180"
-        android:background="@drawable/login_input_background"
-        android:layout_marginTop="-48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/username"
@@ -48,8 +37,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/email_username_bg"/>
 
-    <!--    android:id="@+id/password"-->
-    <!--        android:layout_marginTop="12.5dp"-->
+        <!--    android:id="@+id/password"-->
+<!--        android:layout_marginTop="12.5dp"-->
     <EditText
         android:id="@+id/password"
         android:layout_width="277dp"
@@ -91,13 +80,14 @@
         android:layout_marginTop="41dp"
         app:layout_constraintStart_toStartOf="@id/password"
         app:layout_constraintTop_toBottomOf="@id/password"/>
-    <!--    app:layout_constraintVertical_bias="0.2"-->
+<!--    app:layout_constraintVertical_bias="0.2"-->
 
     <TextView
         android:id="@+id/forgot_password"
         android:layout_width="88dp"
         android:layout_height="32dp"
         android:text="@string/forgot_password"
+        android:lines="1"
         android:gravity="center"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -107,27 +97,27 @@
         app:layout_constraintStart_toStartOf="@id/password"
         app:layout_constraintTop_toBottomOf="@id/password"/>
 
-<!--    android:enabled="false"-->
     <Button
         android:id="@+id/login"
         android:layout_width="155dp"
         android:layout_height="42dp"
         android:layout_gravity="start"
-        android:layout_marginTop="-32dp"
+        android:layout_marginTop="118dp"
+        android:enabled="false"
         android:text="@string/action_sign_in"
         android:textAllCaps="false"
-        app:cornerRadius="20dp"
         android:textStyle="bold"
         android:textSize="11sp"
         android:textColor="@color/black"
-        android:background="@drawable/login_button_background1"
-        app:layout_constraintTop_toBottomOf="@id/email_username_bg"
+        app:cornerRadius="20dp"
+        android:backgroundTint="@drawable/login_button_background1"
+        app:layout_constraintTop_toBottomOf="@id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/no_acc_register"
-        android:layout_width="wrap_content"
+        android:layout_width="211dp"
         android:layout_height="20dp"
         android:text="@string/no_account_register"
         android:lines="1"
@@ -135,29 +125,27 @@
         android:textSize="11sp"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="@id/email_username_bg"
         app:layout_constraintEnd_toEndOf="@id/email_username_bg"
-        app:layout_constraintBottom_toTopOf="@id/register_start"/>
+        app:layout_constraintTop_toBottomOf="@id/login"/>
 
     <Button
         android:id="@+id/register_start"
         android:layout_width="155dp"
         android:layout_height="42dp"
         android:layout_gravity="start"
-        android:background="@drawable/login_button_background1"
+        android:layout_marginTop="60dp"
         android:text="@string/start_register"
         android:textAllCaps="false"
-        android:textColor="@color/black"
         android:textSize="11sp"
-        android:textStyle="bold"
+        android:textColor="@color/black"
         app:cornerRadius="20dp"
-        android:layout_marginBottom="-32dp"
-        app:layout_constraintBottom_toTopOf="@id/registration_btn_bg"
+        android:backgroundTint="@drawable/login_button_background1"
+        app:layout_constraintTop_toBottomOf="@id/login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
-<!--    app:layout_constraintHorizontal_bias="0.0"-->
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="wrap_content"
@@ -168,9 +156,11 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintVertical_bias="0.3" />
+<!--    </RelativeLayout>-->
+<!--    </ScrollView>-->
 
-    </RelativeLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

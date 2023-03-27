@@ -1,18 +1,32 @@
 <resources>
     <string name="app_name">Not_last_dish</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="prompt_email">Логин / Электронная почта</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="remind_me">Запомнить меня</string>
+    <string name="start_register">Регистрация</string>
+    <string name="no_account_register">Нет аккаунта? Зарегистрируйтесь здесь</string>
+    <string name="load_image">Загрузить фотографию</string>
+    <string name="action_sign_in">Войти</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="welcome">"Добро пожаловать !"</string>
+    <string name="invalid_username">Неккоректное имя пользователя</string>
+    <string name="invalid_password">Пароль должен быть >8 символов</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="forgot_password">"Забыли пароль?"</string>
-    <string name="remind_me">"Запомнить меня"</string>
-    <string name="no_account_register">"Нет аккаунта? Зарегистрируйтесь здесь"</string>
-    <string name="start_register">"Регистрация"</string>
-    <string name="clickableText"><u>Отправить снова</u></string>
 
+    <!-- Strings related to sign up -->
+    <string name="nickname">Ник</string>
+    <string name="name">Имя</string>
+    <string name="lastname">Фамилия</string>
+    <string name="email">Электронная почта</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="repeat_password">Подтверждение пароля</string>
+    <string name="nickname_field_info">Ник будет отображаться всем пользователям</string>
+    <string name="name_lastname_fields_info">Отображение имени и фамилии можно будет отключить в настройках в любой момент</string>
+    <string name="password_field_info">• Пароль должен содержать не менее 8 символов\n• Заглавные буквы\n• Символы  ,!.”@$#*()\n• Минимум 1 цифру</string>
+    <string name="i_agree">Я принимаю</string>
+    <string name="user_agreement"><u>Пользовательское соглашение</u></string>
+    <string name="confidence"><u>Политика Конфиденциальности</u></string>
 </resources>

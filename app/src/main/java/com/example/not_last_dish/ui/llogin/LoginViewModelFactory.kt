@@ -1,4 +1,4 @@
-package com.example.not_last_dish.ui.login
+package com.example.not_last_dish.ui.llogin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
