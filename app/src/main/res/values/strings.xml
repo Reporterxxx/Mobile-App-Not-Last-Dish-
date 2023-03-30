@@ -29,4 +29,8 @@
     <string name="i_agree">Я принимаю</string>
     <string name="user_agreement"><u>Пользовательское соглашение</u></string>
     <string name="confidence"><u>Политика Конфиденциальности</u></string>
+
+
+    <string name="clickableText">Отправить снова</string>
+    <string name="app_name_text">Not Last Dish</string>
 </resources>
