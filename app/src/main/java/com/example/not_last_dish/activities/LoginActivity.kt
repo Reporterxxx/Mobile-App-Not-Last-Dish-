@@ -69,7 +69,15 @@ class LoginActivity : AppCompatActivity() {
             variable result get value true only after returning value
              */
             if (isUserNameValid and isPasswordValid) {
-                verificationUser(username.text.toString(), password.text.toString())
+                //*TODO: Mr. Kostil to make it work offline
+                if (username.text.toString() != "login") { // kostil
+                    verificationUser(username.text.toString(), password.text.toString()) // it is not kostil
+                } else { // kostil
+                    val i = Intent(this@LoginActivity, MainActivity::class.java) //kostil
+                    startActivity(i)
+                    finish()
+                } // kostil
+
             } else {
                 loadingAnim.visibility = View.GONE
                 //Toast.makeText(applicationContext, "Пустые поля!", Toast.LENGTH_LONG).show()
@@ -141,7 +149,8 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }, Response.ErrorListener {
-                Toast.makeText(applicationContext,"That didn't work!", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext,"No connection!", Toast.LENGTH_LONG).show()
+                binding.loading.visibility = View.GONE
             }
         ) {
             override fun getParams(): Map<String, String> {
